@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AirDraw | Virtual Pen</title>
+
+    <link rel="stylesheet"
+        href="style.css">
+
+    <script type="module"
+        src="handtraking.js"></script>
+    </script>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header class="header">
+            <h1>AirDraw<span>.</span></h1>
+            <p>Turn your fingers into a virtual pen.</p>
+        </header>
+
+        <section class="workspace">
+
+            <div class="workspace-header">
+                <h2>Virtual Whiteboard</h2>
+
+                <div class="camera-status">
+                    <span id="statusDot"></span>
+                    <span id="statusText">Camera Offline</span>
+                </div>
+            </div>
+
+            <div class="camera-container">
+
+                <video id="webcam" autoplay playsinline muted></video>
+
+                <!-- Drawing layer -->
+                <canvas id="drawingCanvas"></canvas>
+
+                <!-- Hand tracking layer -->
+                <canvas id="handCanvas"></canvas>
+
+                <div class="camera-placeholder" id="placeholder">
+                    <h3>Welcome to AirDraw</h3>
+                    <p>Start your camera to begin.</p>
+                </div>
+
+            </div>
+
+            <div class="controls">
+
+                <button id="startCamera" class="start-btn">
+                    Start Camera
+                </button>
+
+                <button id="stopCamera" class="stop-btn" disabled>
+                    Stop Camera
+                </button>
+
+                <button id="clearCanvas" class="clear-btn">
+                    Clear Drawing
+                </button>
+
+                <label class="color-control" for="drawingColor">
+                    Pen color
+                    <input id="drawingColor" type="color" value="#8065f5"
+                        aria-label="Choose pen color">
+                </label>
+
+            </div>
+
+            <div class="tracking-info">
+
+                <h3>Tracking Information</h3>
+
+                <p id="handStatus">Hands: 0 detected</p>
+
+                <p id="fingerPosition">Index Fingers: --, --</p>
+
+                <p id="drawStatus">Drawing: OFF</p>
+
+            </div>
+
+            <div class="instructions">
+                <h3>How to draw</h3>
+                <p>1. Show your hand to the camera.</p>
+                <p>2. Bring your thumb and index fingertips together to draw.</p>
+                <p>3. Bring your index and middle fingertips together to erase.</p>
+                <p>4. Move your hand to draw or erase.</p>
+                <p>5. Release your fingers to stop.</p>
+            </div>
+
+            <p id="message" class="message">
+                Start your camera to begin.
+            </p>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
